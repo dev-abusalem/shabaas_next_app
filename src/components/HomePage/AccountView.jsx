@@ -13,7 +13,7 @@ const AccountView = () => {
                 
                 <div className='py-3 col-span-1'>
                     <h1 className='text-3xl md:text-[2.7rem]'>Merchant Benefits</h1>
-                    <h2 className='pt-3 '>Once user authorises SHABAAS to access your banking data, it would read below account information and display a summary of all accounts in this view.</h2>
+                    {/* <h2 className='pt-3 '>Once user authorises SHABAAS to access your banking data, it would read below account information and display a summary of all accounts in this view.</h2> */}
                     <ul className='py-3 text-lg ml-12 md:ml-10'>
                       <li className='pt-3 list-decimal '> Save on transaction costs for each transaction</li>
                       <li className='pt-3 list-decimal '> Transaction amount is transferred instantly and securely</li>

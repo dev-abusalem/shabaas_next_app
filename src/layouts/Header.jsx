@@ -25,11 +25,11 @@ const Header = () => {
                 </div>
                 
                 <nav className={showMenu ? 'block' : ' hidden md:block'}>
-                    <ul className='md:flex items-center justify-end gap-3'>
+                    <ul className='md:flex items-center justify-end gap-10'>
                         <li><Link href="/" className=' block md:inline-block  p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Home</Link></li>
-                        <li><Link href="/#shabaaspfm" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Consumers</Link></li>
-                        <li><Link href="/#accountview" className=' block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Accounts</Link></li>
-                        <li><Link href="/#faqs" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>FAQS</Link></li>
+                        <li><Link href="/#shabaaspfm" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Consumer</Link></li>
+                        <li><Link href="/#accountview" className=' block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Merchant</Link></li>
+                        {/* <li><Link href="/#contact" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Contact</Link></li> */}
                     </ul>
                 </nav>
             </div>

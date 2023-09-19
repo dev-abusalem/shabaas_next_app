@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className='py-10 bg-[#f2f2f2]'>
       <Container>
-        <div className=' max-w-[700px] mx-auto'>
+        <div className=' max-w-[750px] mx-auto'>
           <div className='flex justify-center gap-16 items-center pb-10'>
             <Link href="https://www.linkedin.com/company/shabaas/"><FaLinkedinIn className='text-xl text-gray-600 hover:text-gray-700 duration-100' /></Link>
             <Link href="https://twitter.com/shabaasfinance"><FaTwitter className='text-xl text-gray-600 hover:text-gray-700 duration-100' /></Link>
@@ -16,16 +16,19 @@ const Footer = () => {
           <div className='w-full h-[2px] bg-gray-400' ></div>
           <ul className='flex justify-center md:gap-16 gap-6 items-center py-10'>
             <li>
-            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="https://shabaas.com.au/terms">Terms of Use</Link>
+            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="/terms">Terms of Use</Link>
             </li>
             <li>
-            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="https://shabaas.com.au/privacy-policy/">Privacy Policy </Link>
+            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="/privacy-policy">Privacy Policy </Link>
             </li>
             <li>
-            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="https://shabaas.com.au/cookie-policy/">Cookie Policy</Link>
+            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="/privacy-collection">Privacy Collection </Link>
             </li>
             <li>
-            <Link className='hover:underline  text-gray-600 hover:text-gray-700 duration-100' href="https://shabaas.com.au/aboutus/">About Us </Link>
+            <Link className=' hover:underline text-gray-600 hover:text-gray-700 duration-100' href="/cookie-policy">Cookie Policy</Link>
+            </li>
+            <li>
+            <Link className='hover:underline  text-gray-600 hover:text-gray-700 duration-100' href="/">About Us </Link>
             </li>
           </ul>
           <div className='w-full h-[2px] bg-gray-400' ></div>

@@ -55,7 +55,7 @@ const Accrodians = () => {
             </div>
             <div className='w-4/5'>
                 <div className="heading flex justify-between  cursor-pointer px-4 py-3" onClick={()=>setShowAcc3(!showAcc3)}>
-                    <h2 className='font-bold'>PAY</h2>
+                    <h2 className='font-bold'>SHOP & PAY</h2>
                     <span className='mt-1'>
                     {showAcc3 ? <AiOutlineMinus  className=' text-primary'  /> :
                          <AiOutlinePlus/>}

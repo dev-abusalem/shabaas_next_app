@@ -1,4 +1,4 @@
-import TermsMain from '@/components/TermsMain/TermsMain'
+import { PrivacyCollectionMain } from '@/components/PrivacyCollection/PrivacyCollectionMain'
 import Footer from '@/layouts/Footer'
 import Header from '@/layouts/Header'
 import Head from 'next/head'
@@ -9,17 +9,17 @@ const index = () => {
     <>
     <Head>
         <title>
-        Terms of Use – SHABAAS
+            Privacy Policy – SHABAAS
         </title>
         <meta
           name="description"
-          content="Terms of Use – SHABAAS"
+          content="Privacy Policy – SHABAAS"
           key="desc"
         />
       </Head>
       <Header />
 
-        <TermsMain />
+       <PrivacyCollectionMain /> 
 
       <Footer />
     </>

@@ -25,8 +25,7 @@ const ContactUs = () => {
         setIsLoading(true);    
         const result = await axios.post("/api/sendmail", { name : name , email:email , mobile: mobile , message: message  });
         setIsLoading(false);
-        toast.success(result.data.message)
-        
+        toast.success(result.data.message);      
     
         } catch (error) {
             toast.error(error)

@@ -1,4 +1,5 @@
-import TermsMain from '@/components/TermsMain/TermsMain'
+import CookiePolicyMain from '@/components/CookiePolicy/CookiePolicyMain'
+import Container from '@/layouts/Container'
 import Footer from '@/layouts/Footer'
 import Header from '@/layouts/Header'
 import Head from 'next/head'
@@ -6,23 +7,21 @@ import React from 'react'
 
 const index = () => {
   return (
-    <>
-    <Head>
+   <>
+   <Head>
         <title>
-        Terms of Use – SHABAAS
+        Cookie Policy – SHABAAS
         </title>
         <meta
           name="description"
-          content="Terms of Use – SHABAAS"
+          content="Cookie Policy – SHABAAS"
           key="desc"
         />
       </Head>
-      <Header />
-
-        <TermsMain />
-
-      <Footer />
-    </>
+   <Header />
+    <CookiePolicyMain /> 
+    <Footer />
+   </>
   )
 }
 
