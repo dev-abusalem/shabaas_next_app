@@ -7,23 +7,25 @@ const HomeHero = () => {
 
   return (
 
-    <section className='hero_section'>
-        <Container>
-            <div className='md:grid grid-cols-2 justify-start items-center md:min-h-[65vh] min-h-screen'>
-              <div className=' col-span-1 pt-8 md:pt-0 '>
-                <h1 className='md:text-[2.7rem] text-3xl mb-5 '>It’s fast, easy and free.<sup className='text-lg'> <a href="">1</a> </sup> It’s Zelle®.</h1>
-                <p className='md:text-2xl text-xl mb-3'>Send and receive money with friends and family in minutes, no matter where they bank in the U.S.<sup className='text-lg'> <a href="">1</a> </sup>   </p>
+    <section id='home' className='hero_section md:min-h-[90vh] min-h-[35vh]'>
+       <div>
+       <Container>
+            <div className='md:grid grid-cols-2 justify-start items-center'>
+              <div className=' col-span-1 pt-8 md:pt-0 hidden'>
+                <h1 className='md:text-[2.7rem] text-3xl mb-5 block md:leading-[3rem]'>Save while you transact using SHABAAS Pay App.</h1>
+                <p className='md:text-2xl text-xl mb-3'>Pay for your food and groceries instantly and save on each transaction while you pay.<sup className='text-lg'> <a href="">1</a> </sup>   </p>
                 
                 {/*
                 <a className='inline-block mt-4' href="#"><Image src={playbutton} width={110} alt='playbutton' /></a>*/}
 
-                <HeroPopup />
+                {/* <HeroPopup /> */}
               </div>
               <div className=' col-span-1 '>
 
               </div>
             </div>
         </Container>
+       </div>
     </section>
   )
 }

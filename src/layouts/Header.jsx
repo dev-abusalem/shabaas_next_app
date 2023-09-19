@@ -12,7 +12,7 @@ const Header = () => {
     const [showMenu , setShowMenu] = useState(false)
 
   return (
-    <header className=' min-h-[60px] sticky top-0 bg-white '>
+    <header className=' min-h-[60px] sticky top-0 bg-white z-10 '>
         <Container>
             <div className='md:flex justify-between items-center gap-5'>
                 <div className="logo flex justify-between items-center">
@@ -20,17 +20,16 @@ const Header = () => {
                     <Link href="/"> <Image width={200} alt='logo' src={logo} /></Link>
                     </div>
                     <div className='md:hidden block cursor-pointer'>          
-                        {showMenu ? <AiOutlineClose onClick={()=>setShowMenu(!showMenu)} /> : <FaBars onClick={()=>setShowMenu(!showMenu)} /> }
+                        {showMenu ? <AiOutlineClose className='border-2 border-black text-4xl p-2 rounded-md ' onClick={()=>setShowMenu(!showMenu)}  /> : <FaBars className='border-2 border-black text-4xl p-2 rounded-md ' onClick={()=>setShowMenu(!showMenu)} /> }
                     </div>
                 </div>
                 
                 <nav className={showMenu ? 'block' : ' hidden md:block'}>
-                    <ul className='md:flex justify-end gap-3'>
-                        <li><Link href="/" className=' uppercase px-1 py-2 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>HOME</Link></li>
-                        <li><Link href="/#shabaaspfm" className=' uppercase px-1 py-2 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>SHABAAS PFM</Link></li>
-                        <li><Link href="/#accountview" className=' uppercase px-1 py-2 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Accounts View</Link></li>
-                        <li><Link href="/#tnsview" className=' uppercase px-1 py-2 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Transactions View</Link></li>
-                        <li><Link href="/#contact" className=' uppercase px-1 py-2 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Contact us</Link></li>
+                    <ul className='md:flex items-center justify-end gap-3'>
+                        <li><Link href="/" className=' block md:inline-block  p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Home</Link></li>
+                        <li><Link href="/#shabaaspfm" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Consumers</Link></li>
+                        <li><Link href="/#accountview" className=' block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>Accounts</Link></li>
+                        <li><Link href="/#faqs" className='block md:inline-block p-1 border-b-2 border-transparent duration-150 hover:text-primary hover:border-primary'>FAQS</Link></li>
                     </ul>
                 </nav>
             </div>

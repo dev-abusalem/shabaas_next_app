@@ -12,6 +12,7 @@ import AccountView from '@/components/HomePage/AccountView'
 import ShabaasPfm from '@/components/HomePage/ShabaasPfm'
 
 export default function Home() {
+
   return (
    <>
         <Head>
@@ -30,10 +31,8 @@ export default function Home() {
         <GetStarted />
         <ShabaasPfm />
         <AccountView />
-        <TranstionView />
         <ImportantInfo />
         <FAQS />
-        <ContactUs />
         <Footer />
       </div>
    </>

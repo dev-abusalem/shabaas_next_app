@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import {SlArrowDown , SlArrowUp} from "react-icons/sl"
-
+import {AiOutlinePlus , AiOutlineClose} from 'react-icons/ai'
 
 
 
@@ -13,19 +12,19 @@ const ToogleFAQ = ({ heading, description }) => {
 
   return (
     <div className="mb-2">
-      <div className="flex justify-between items-center bg-primary rounded-lg text-white font-semibold p-4  cursor-pointer " onClick={toggleDescription}>
-        <h2 className="cursor-pointer">
+      <div className="flex justify-between items-center border-2 border-black rounded-lg text-black font-semibold p-4  cursor-pointer " onClick={toggleDescription}>
+        <h2 className="cursor-pointer text-lg">
           {heading}
         </h2>
         <button
           className="text-gray-500 focus:outline-none"
           
         >
-          {isDescriptionVisible ?  <SlArrowUp className='text-white' /> : <SlArrowDown className='text-white' />} 
+          {isDescriptionVisible ?  <AiOutlineClose className='text-primary text-lg' /> : <AiOutlinePlus className='text-primary text-lg' />} 
         </button>
       </div>
       {isDescriptionVisible && (
-        <p className="mt-1 p-4  bg-sky-100">{description}</p>
+        <p className="mt-1 p-4  ">{description}</p>
       )}
     </div>
   );

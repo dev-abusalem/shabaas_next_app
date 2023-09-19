@@ -3,18 +3,28 @@
 @tailwind utilities;
 
 /* hompage all css start */
+html {
+  scroll-behavior: smooth;
+}
 
 h1{
-  font-weight: 300;
+  font-weight:300;
 }
+
 .hero_section{
-  background-image: url("../../public//images/hero.JPG");
+  background-image: url("../../public//images/hero.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 65vh;
+  width: 100%;
 }
-
+.hero_section_overlay{
+  background:rgba(0,0,0,0.75);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+}
 
 .contact_us_bg{
   background-image: url("../../public//images/contact.svg");

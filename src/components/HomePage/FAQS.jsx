@@ -4,9 +4,11 @@ import Container from '@/layouts/Container';
 
 function FAQS() {
   return (
-    <section id='faqs'>
+    <section id='faqs' className=' py-10'>
         <Container>
             <div className='md:w-[750px] w-full mx-auto '>
+                <h1 className='text-3xl md:text-[2.7rem] text-left md:text-center mb-3'>Frequently Asked Questions</h1>
+
                 <div className="mx-auto p-4">
                 <ToogleFAQ
                     heading="What is SHABAAS Pay ?"
