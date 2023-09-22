@@ -27,7 +27,7 @@ h1{
 }
 
 .contact_us_bg{
-  background-image: url("../../public//images/contact.svg");
+  /* background-image: url("../../public//images/contact.svg"); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -7,10 +7,10 @@ const TranstionView = () => {
   return (
     <section id="tnsview" className=' py-8'>
         <Container>
-            <div className='md:grid grid-cols-2 justify-between gap-16 items-center md:min-h-[60vh] min-h-[40vh]'>
+            <div className='md:grid grid-cols-2 justify-between gap-16 items-center md:min-h-[60vh] min-h-[25vh] sm:min-h-[40vh]'>
                 
                 <div className='col-span-1 flex md:justify-start justify-center'>
-                <Image src={transaction} alt='getstarted' className='md:min-h-[60vh] min-h-[40vh]' />
+                <Image src={transaction} alt='getstarted' className='md:min-h-[60vh] min-h-[25vh] sm:min-h-[40vh]' />
                 </div>
                 <div className='py-3 col-span-1'>
                     <h1 className='text-3xl md:text-[2.7rem]'>What is Transactions View?</h1>

@@ -3,13 +3,12 @@ import FAQS from '@/components/HomePage/FAQS'
 import GetStarted from '@/components/HomePage/GetStarted'
 import HomeHero from '@/components/HomePage/HomeHero'
 import ImportantInfo from '@/components/HomePage/ImportantInfo'
-import TranstionView from '@/components/HomePage/TranstionView'
-import ContactUs from '@/layouts/ContactUs'
 import Footer from '@/layouts/Footer'
 import Header from '@/layouts/Header'
 import Head from 'next/head'
-import AccountView from '@/components/HomePage/AccountView'
-import ShabaasPfm from '@/components/HomePage/ShabaasPfm'
+import Consumer from '@/components/HomePage/Consumer'
+import Merchant from '@/components/HomePage/Merchant'
+import 'react-quill/dist/quill.snow.css';
 
 export default function Home() {
 
@@ -29,8 +28,8 @@ export default function Home() {
         <Header />
         <HomeHero />
         <GetStarted />
-        <ShabaasPfm />
-        <AccountView />
+        <Consumer />
+        <Merchant />
         <ImportantInfo />
         <FAQS />
         <Footer />

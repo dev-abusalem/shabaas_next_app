@@ -7,7 +7,7 @@ const HomeHero = () => {
 
   return (
 
-    <section id='home' className='hero_section md:min-h-[90vh] min-h-[35vh]'>
+    <section id='home' className='hero_section md:min-h-[90vh] min-h-[20vh] sm:min-h-[35vh]'>
        <div>
        <Container>
             <div className='md:grid grid-cols-2 justify-start items-center'>
