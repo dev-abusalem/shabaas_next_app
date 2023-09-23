@@ -1,19 +1,22 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 const email = process.env.USER_MAIL;
 const pass = process.env.USER_PASS;
 
+// const email = process.env.USER_MAIL_MAIN;
+// const pass = process.env.USER_PASS_MAIN;
+
 export default async function handler(req, res) {
   try {
-    const { email: recipientEmail} = req.body;
+    const { email: recipientEmail } = req.body;
 
     // Check if recipientEmail is defined and not empty
     if (!recipientEmail) {
-      return res.status(400).json({ error: 'Recipient email is required' });
+      return res.status(400).json({ error: "Recipient email is required" });
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: email,
         pass: pass,
@@ -23,7 +26,7 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: email,
       to: recipientEmail,
-      subject: 'Messate From Shabaas Contact Form',
+      subject: "Messate From Shabaas Contact Form",
       html: `
       
       <table>
@@ -47,9 +50,9 @@ export default async function handler(req, res) {
 
     await transporter.sendMail(mailOptions);
 
-    res.status(200).json({ message: 'Form Fillup successfully!' });
+    res.status(200).json({ message: "Form Fillup successfully!" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Form Fillup Failed ' });
+    res.status(500).json({ error: "Form Fillup Failed " });
   }
 }
