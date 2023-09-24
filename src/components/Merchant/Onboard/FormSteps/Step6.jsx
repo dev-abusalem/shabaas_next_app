@@ -42,13 +42,25 @@ const Step6 = ({ formData, setFormData, nextStep, currentStep, prevStep }) => {
         Request a Sub-merchant account
       </h2>
 
-      <div className="flex justify-center items-center mb-4 gap-2 ">
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
-        <div className="w-[18px] h-[18px] bg-primary rounded-full "></div>
+      <div className="flex justify-between items-center mb-4 gap-2 bg-gray-300 py-[3px] px-[4px] rounded-full ">
+        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
+          1
+        </div>
+        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
+          2
+        </div>
+        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
+          3
+        </div>
+        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
+          4
+        </div>
+        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
+          5
+        </div>
+        <div className="w-[25px] h-[25px] bg-primary rounded-full text-center text-white font-semibold ">
+          6
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>
