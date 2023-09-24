@@ -1,5 +1,5 @@
 // components/MultiStepForm.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Step1 from "./FormSteps/Step1";
 import Step2 from "./FormSteps/Step2";
 import Step3 from "./FormSteps/Step3";
@@ -9,8 +9,11 @@ import Step4 from "./FormSteps/Step4";
 import Step5 from "./FormSteps/Step5";
 import Step6 from "./FormSteps/Step6";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 
 const Onboard = () => {
+  const [clientIp, setClientIp] = useState("");
+
   const [formData, setFormData] = useState({
     summary: "",
     clensubmerchant: "",
@@ -24,7 +27,35 @@ const Onboard = () => {
     trolforthedashuser: "",
     submerchantuserexpdegImg: null,
     othercommentsReachText: "",
+    clietnIp: clientIp,
   });
+
+  useEffect(() => {
+    fetchIp();
+  }, [formData.summary]);
+
+  async function fetchIp() {
+    try {
+      const apiUrl = "/api/getip"; // Adjust the URL as needed
+
+      const allowedUrls = ["/api/getip"]; // Add more allowed URLs as needed
+      if (!allowedUrls.includes(apiUrl)) {
+        throw new Error("Invalid API URL");
+      }
+      // Use HTTPS
+      // if (!apiUrl.startsWith("https://")) {
+      //   throw new Error("API URL must use HTTPS");
+      // }
+
+      const res = await axios.get(apiUrl);
+      setClientIp(res.data.ip);
+    } catch (error) {
+      // Proper error handling without exposing sensitive information
+      console.error("An error occurred:", error.message);
+    }
+  }
+
+  console.log(formData.clietnIp);
 
   const [currentStep, setCurrentStep] = useState(1);
 
