@@ -16,8 +16,6 @@ const Step3 = ({ formData, setFormData, nextStep, currentStep, prevStep }) => {
     nextStep();
   };
 
-  console.log(formData.hsubmerchantpassddkyc);
-
   return (
     <>
       <h2 className="text-xl font-bold md:text-3xl mb-6 text-center underline text-primary">

@@ -1,6 +1,44 @@
+import axios from "axios";
 import React from "react";
+import Swal from "sweetalert2";
 
 const Preview = ({ formData, prevStep, currentStep }) => {
+  const handleSubmitOnboard = () => {
+    Swal.fire({
+      title: "Are you sure you want to send request ?",
+      text: "You can check everthing if you want",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, I want to send",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Send !", "Your file has been send .");
+      }
+      const apiUrl = "/api/onboard"; // Adjust the URL as needed
+
+      const allowedUrls = ["/api/getip"]; // Add more allowed URLs as needed
+      if (!allowedUrls.includes(apiUrl)) {
+        throw new Error("Invalid API URL");
+      }
+      const res = axios.post(apiUrl, {
+        clensubmerchant: formData.clensubmerchant,
+        abnsubmerchant: formData.abnsubmerchant,
+        iosubmerchant: formData.iosubmerchant,
+        websubmerchant: formData.websubmerchant,
+        hsubmerchantpassddkyc: formData.hsubmerchantpassddkyc,
+        sbsbacnumpayidsetacc: formData.sbsbacnumpayidsetacc,
+        payiddomsubmerchant: formData.payiddomsubmerchant,
+        azupayclidasumailaddforlog: formData.azupayclidasumailaddforlog,
+        trolforthedashuser: formData.trolforthedashuser,
+        submerchantuserexpdegImg: formData.submerchantuserexpdegImg,
+        othercommentsReachText: formData.othercommentsReachText,
+        clietnIp: formData.clietnIp,
+      });
+    });
+  };
+
   return (
     <div>
       <h2 className="text-xl font-bold md:text-3xl mb-7 text-center underline text-primary">
@@ -93,7 +131,8 @@ const Preview = ({ formData, prevStep, currentStep }) => {
                   </button>
                 )}
                 <button
-                  type="submit"
+                  onClick={handleSubmitOnboard}
+                  type="button"
                   className="text-white bg-green-700 hover:opacity-80 duration-100 focus:ring-4 focus:outline-none focus:ring-green-700 font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-green-700 dark:hover:bg-green-700 dark:focus:ring-green-700"
                 >
                   Submit

@@ -6,16 +6,14 @@ import Step3 from "./FormSteps/Step3";
 import Container from "@/layouts/Container";
 import Preview from "./FormSteps/Preview";
 import Step4 from "./FormSteps/Step4";
-import Step5 from "./FormSteps/Step5";
-import Step6 from "./FormSteps/Step6";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
+import OTPVerify from "./FormSteps/OTPVerify";
 
 const Onboard = () => {
   const [clientIp, setClientIp] = useState("");
 
   const [formData, setFormData] = useState({
-    summary: "",
     clensubmerchant: "",
     abnsubmerchant: "",
     iosubmerchant: "",
@@ -80,7 +78,7 @@ const Onboard = () => {
         );
       case 2:
         return (
-          <Step2
+          <OTPVerify
             formData={formData}
             setFormData={setFormData}
             nextStep={nextStep}
@@ -90,7 +88,7 @@ const Onboard = () => {
         );
       case 3:
         return (
-          <Step3
+          <Step2
             formData={formData}
             setFormData={setFormData}
             nextStep={nextStep}
@@ -100,7 +98,7 @@ const Onboard = () => {
         );
       case 4:
         return (
-          <Step4
+          <Step3
             formData={formData}
             setFormData={setFormData}
             nextStep={nextStep}
@@ -110,7 +108,7 @@ const Onboard = () => {
         );
       case 5:
         return (
-          <Step5
+          <Step4
             formData={formData}
             setFormData={setFormData}
             nextStep={nextStep}
@@ -118,17 +116,8 @@ const Onboard = () => {
             currentStep={currentStep}
           />
         );
+
       case 6:
-        return (
-          <Step6
-            formData={formData}
-            setFormData={setFormData}
-            nextStep={nextStep}
-            prevStep={prevStep}
-            currentStep={currentStep}
-          />
-        );
-      case 7:
         return (
           <Preview
             formData={formData}

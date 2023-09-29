@@ -1,31 +1,77 @@
-// components/Step1.js
+import { setOTP } from "@/redux/state/otpSlice/otpSlice";
+import axios from "axios";
 import React, { useState } from "react";
+import { FaCheck } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Value add on state
+  const [clensubmerchant, setClensubmerchant] = useState("");
+  const [recipientEmail, setRecipientEmail] = useState("");
+  // const [error, setError] = useState("");
 
-  // if fill of the hide input its redirect to homepage and lock that ip
   const handleFillChange = () => {
     window.location.replace("/");
   };
 
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch();
+
+  // const validateEmail = (email) => {
+  //   const allowedDomains = ["yourbusiness.com", "anotherbusiness.com"]; // Add your allowed business domains
+  //   const domain = email.split("@")[1];
+  //   return allowedDomains.includes(domain);
+  // };
+
+  const HandleSubmit = async (e) => {
     e.preventDefault();
-    nextStep();
+
+    // if (!validateEmail(recipientEmail)) {
+    //   setError("Please use a business email address.");
+    //   return;
+    // }
+
+    const num = Math.floor(1000 + Math.random() * 9000);
+
+    try {
+      const otp = await axios.post("/api/sendotp", {
+        recipientEmail: recipientEmail,
+        otpValue: num,
+      });
+
+      toast.success("OTP sent successfully!");
+      dispatch(setOTP(num));
+
+      nextStep();
+    } catch (error) {
+      toast.error("OTP send failed!");
+    }
   };
 
   return (
     <>
+      <ToastContainer />
       <h2 className="text-xl font-bold md:text-3xl mb-6 text-center underline text-primary">
         Request a Sub-merchant account
       </h2>
 
-      <div className="flex justify-between items-center mb-4 gap-2 bg-gray-300 py-[3px] px-[4px] rounded-full ">
-        <div className="w-[25px] h-[25px] bg-primary rounded-full text-center text-white font-semibold ">
-          1
+      {/* {error && (
+        <div className="mb-4 text-red-700 text-center p-3 bg-red-100 my-2 shadow-sm rounded">
+          {error}
         </div>
+      )} */}
+
+      <div className="flex justify-between items-center mb-4 gap-2 bg-gray-300 py-[3px] px-[4px] rounded-full ">
+        {recipientEmail.length > 0 && clensubmerchant.length > 0 ? (
+          <div className="w-[25px] h-[25px] bg-green-700 rounded-full text-center text-white font-semibold ">
+            <FaCheck className="text-white inline-block mb-[3px]" />
+          </div>
+        ) : (
+          <div className="w-[25px] h-[25px] bg-primary rounded-full text-center text-white font-semibold ">
+            1
+          </div>
+        )}
         <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
           2
         </div>
@@ -43,26 +89,7 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-6">
-          <label
-            htmlFor="summary"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Summary*
-          </label>
-          <input
-            onChange={handleChange}
-            name="summary"
-            value={formData.summary}
-            type="text"
-            id="summary"
-            className="bg-gray-50 border-gray-300 text-gray-900 block w-full p-2.5 text-sm rounded-lg outline-none border-2 focus:border-primary"
-            placeholder="Summary"
-            required
-          />
-        </div>
-
+      <form onSubmit={HandleSubmit}>
         <div className="mb-6">
           <label
             htmlFor="clensubmerchant"
@@ -71,13 +98,29 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
             Company/Legal Entity Name of the Sub-merchant*
           </label>
           <input
-            onChange={handleChange}
-            name="clensubmerchant"
-            value={formData.clensubmerchant}
+            onChange={(e) => setClensubmerchant(e.target.value)}
+            value={clensubmerchant}
             type="text"
             id="clensubmerchant"
             className="bg-gray-50 border-gray-300 text-gray-900 block w-full p-2.5 text-sm rounded-lg outline-none border-2 focus:border-primary"
             placeholder="Company/Legal Entity Name of the Sub-merchant"
+            required
+          />
+        </div>
+
+        <div className="mb-6">
+          <label
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Email*
+          </label>
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => setRecipientEmail(e.target.value)}
+            className="bg-gray-50 border-gray-300 text-gray-900 block w-full p-2.5 text-sm rounded-lg outline-none border-2 focus:border-primary"
+            placeholder="Email*"
             required
           />
         </div>
@@ -87,7 +130,7 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
             htmlFor="iffillformone"
             className="none mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Dont fill this input
+            Don&apos;t fill this input
           </label>
           <input
             onChange={handleFillChange}
