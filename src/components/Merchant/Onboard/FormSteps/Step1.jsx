@@ -5,6 +5,8 @@ import { FaCheck } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { setOnboard } from "@/redux/state/onboardSlice/onboardSlice";
+import { useEffect } from "react";
 
 const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
   // Value add on state
@@ -42,12 +44,20 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
 
       toast.success("OTP sent successfully!");
       dispatch(setOTP(num));
+      dispatch(
+        setOnboard({
+          clensubmerchant: clensubmerchant,
+          recipientEmail: recipientEmail,
+        })
+      );
 
       nextStep();
     } catch (error) {
       toast.error("OTP send failed!");
     }
   };
+
+  const isOnboard = useSelector((state) => state.onboard);
 
   return (
     <>
@@ -62,8 +72,9 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
         </div>
       )} */}
 
-      <div className="flex justify-between items-center mb-4 gap-2 bg-gray-300 py-[3px] px-[4px] rounded-full ">
-        {recipientEmail.length > 0 && clensubmerchant.length > 0 ? (
+      <div className="flex justify-between items-center mb-4 gap-2 bg-gray-300 py-[3px] px-[4px] rounded-full w-[60%] mx-auto ">
+        {isOnboard.recipientEmail !== undefined &&
+        isOnboard.clensubmerchant !== undefined ? (
           <div className="w-[25px] h-[25px] bg-green-700 rounded-full text-center text-white font-semibold ">
             <FaCheck className="text-white inline-block mb-[3px]" />
           </div>
@@ -80,12 +91,6 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
         </div>
         <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
           4
-        </div>
-        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
-          5
-        </div>
-        <div className="w-[25px] h-[25px] bg-gray-600 rounded-full text-center text-white font-semibold ">
-          6
         </div>
       </div>
 
@@ -148,7 +153,7 @@ const Step1 = ({ formData, setFormData, nextStep, currentStep }) => {
             type="submit"
             className="text-white bg-primary hover:opacity-80 duration-100 focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-blue-800"
           >
-            Next
+            Continue
           </button>
         </div>
       </form>

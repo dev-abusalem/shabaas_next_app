@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: email,
       to: recipientEmail,
-      subject: "Message From Shabaas Benifit Form",
+      subject: "Message From Shabaas Merchant Onboard Form",
       html: generateEmailTemplate(otpValue), // Use the generated email template
     };
 

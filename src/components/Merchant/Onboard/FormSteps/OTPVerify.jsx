@@ -34,6 +34,10 @@ const OTPVerify = ({ formData, setFormData, nextStep, currentStep }) => {
     }
   }
   console.log(updateOPTValue);
+
+  const isOnboard = useSelector((state) => state.onboard);
+  console.log(isOnboard);
+
   return (
     <>
       <div className="relative flex flex-col justify-center overflow-hidden ">

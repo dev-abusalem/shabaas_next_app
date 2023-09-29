@@ -136,7 +136,7 @@ const Onboard = () => {
       <Container>
         <div
           className={
-            currentStep === 7
+            currentStep === 6
               ? " w-full mx-auto shadow-md rounded-lg md:p-8 p-4 overflow-x-scroll"
               : " max-w-[600px] mx-auto shadow-md rounded-lg md:p-8 p-4"
           }
