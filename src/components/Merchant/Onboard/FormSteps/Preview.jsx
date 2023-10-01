@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Preview = ({ formData, prevStep, currentStep }) => {
@@ -8,40 +9,30 @@ const Preview = ({ formData, prevStep, currentStep }) => {
   const isOnboard = useSelector((state) => state.onboard);
   console.log(isOnboard);
 
-  const handleSubmitOnboard = () => {
-    Swal.fire({
-      title: "Are you sure you want to send request ?",
-      text: "You can check everthing if you want",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, I want to send",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Send !", "Your file has been send .");
-      }
+  const handleSubmitOnboard = async () => {
+    try {
       const apiUrl = "/api/onboard"; // Adjust the URL as needed
 
-      const allowedUrls = ["/api/getip"]; // Add more allowed URLs as needed
-      if (!allowedUrls.includes(apiUrl)) {
-        throw new Error("Invalid API URL");
-      }
-      const res = axios.post(apiUrl, {
-        clensubmerchant: formData.clensubmerchant,
-        abnsubmerchant: formData.abnsubmerchant,
-        iosubmerchant: formData.iosubmerchant,
-        websubmerchant: formData.websubmerchant,
-        hsubmerchantpassddkyc: formData.hsubmerchantpassddkyc,
-        sbsbacnumpayidsetacc: formData.sbsbacnumpayidsetacc,
-        payiddomsubmerchant: formData.payiddomsubmerchant,
-        azupayclidasumailaddforlog: formData.azupayclidasumailaddforlog,
-        trolforthedashuser: formData.trolforthedashuser,
-        submerchantuserexpdegImg: formData.submerchantuserexpdegImg,
-        othercommentsReachText: formData.othercommentsReachText,
-        clietnIp: formData.clietnIp,
+      // const allowedUrls = ["/api/getip"]; // Add more allowed URLs as needed
+      // if (!allowedUrls.includes(apiUrl)) {
+      //   throw new Error("Invalid API URL");
+      // }
+      console.log(isOnboard.clensubmerchant);
+      const res = await axios.post("/api/onboardform", {
+        clensubmerchant: isOnboard.clensubmerchant,
+        recipientEmail: isOnboard.recipientEmail,
+        abnsubmerchant: isOnboard.abnsubmerchant,
+        iosubmerchant: isOnboard.iosubmerchant,
+        websubmerchant: isOnboard.websubmerchant,
+        hsubmerchantpassddkyc: isOnboard.hsubmerchantpassddkyc,
+        othercommentsreachtxt: isOnboard.othercommentsreachtxt,
       });
-    });
+      toast.success("Thank you form send successfully");
+      console.log(res.data);
+    } catch (error) {
+      toast.error("Something is wrong");
+      console.log(error);
+    }
   };
 
   return (
@@ -110,6 +101,7 @@ const Preview = ({ formData, prevStep, currentStep }) => {
               <div className="flex items-center py-4 gap-5">
                 <button
                   type="button"
+                  onClick={handleSubmitOnboard}
                   className="text-white bg-green-700 hover:opacity-80  duration-100 focus:ring-4 focus:outline-none focus:ring-green-700 font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-green-700 dark:hover:bg-green-700 dark:focus:ring-green-700"
                 >
                   Submit

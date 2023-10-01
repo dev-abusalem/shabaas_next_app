@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const OnboardSchema = new mongoose.Schema(
   {
-    summary: {
+    clensubmerchant: {
       type: String,
       require: true,
     },
-    clensubmerchant: {
+    recipientEmail: {
       type: String,
       require: true,
     },
@@ -26,25 +26,6 @@ const OnboardSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    sbsbacnumpayidsetacc: {
-      type: String,
-      require: true,
-    },
-    payiddomsubmerchant: {
-      type: String,
-      require: true,
-    },
-    azupayclidasumailaddforlog: {
-      type: String,
-      require: true,
-    },
-    trolforthedashuser: {
-      type: String,
-      require: true,
-    },
-    submerchantuserexpdegImg: {
-      type: String,
-    },
     othercommentsReachText: {
       type: String,
     },
@@ -56,4 +37,4 @@ const OnboardSchema = new mongoose.Schema(
 );
 
 module.exports =
-  mongoose.model.Onboard || mongoose.model("Onboard", OnboardSchema);
+  mongoose.model.OnboardModel || mongoose.model("OnboardModel", OnboardSchema);

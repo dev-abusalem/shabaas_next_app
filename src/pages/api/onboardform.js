@@ -1,5 +1,7 @@
+import importFresh from "import-fresh";
 import connectDB from "../../server/db/connectDB";
-import OnboardForm from "../../server/models/Onboard"; // Adjust the path as needed
+import ob from "../../server/models/OnboardModel"; // Adjust the path as needed
+const OnboardForm = importFresh(ob);
 
 export default async function handler(req, res) {
   try {
