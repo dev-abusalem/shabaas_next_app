@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -7,17 +8,9 @@ import Swal from "sweetalert2";
 const Preview = ({ formData, prevStep, currentStep }) => {
   // Onboard Redux
   const isOnboard = useSelector((state) => state.onboard);
-  console.log(isOnboard);
 
   const handleSubmitOnboard = async () => {
     try {
-      const apiUrl = "/api/onboard"; // Adjust the URL as needed
-
-      // const allowedUrls = ["/api/getip"]; // Add more allowed URLs as needed
-      // if (!allowedUrls.includes(apiUrl)) {
-      //   throw new Error("Invalid API URL");
-      // }
-      console.log(isOnboard.clensubmerchant);
       const res = await axios.post("/api/onboardform", {
         clensubmerchant: isOnboard.clensubmerchant,
         recipientEmail: isOnboard.recipientEmail,
@@ -28,7 +21,9 @@ const Preview = ({ formData, prevStep, currentStep }) => {
         othercommentsreachtxt: isOnboard.othercommentsreachtxt,
       });
       toast.success("Thank you form send successfully");
-      console.log(res.data);
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 5000);
     } catch (error) {
       toast.error("Something is wrong");
       console.log(error);

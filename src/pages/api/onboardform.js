@@ -1,14 +1,21 @@
 import importFresh from "import-fresh";
 import connectDB from "../../server/db/connectDB";
-import ob from "../../server/models/OnboardModel"; // Adjust the path as needed
-const OnboardForm = importFresh(ob);
+import FormOnboard from "../../server/models/FormOnboard"; // Adjust the path as needed
 
 export default async function handler(req, res) {
   try {
     await connectDB(); // Call the connectDB function to establish the database connection
 
     if (req.method === "POST") {
-      const newOnboard = new OnboardForm(req.body);
+      const newOnboard = new FormOnboard({
+        clensubmerchant: req.body.clensubmerchant,
+        recipientEmail: req.body.recipientEmail,
+        abnsubmerchant: req.body.abnsubmerchant,
+        iosubmerchant: req.body.iosubmerchant,
+        websubmerchant: req.body.websubmerchant,
+        hsubmerchantpassddkyc: req.body.hsubmerchantpassddkyc,
+        othercommentsreachtxt: req.body.othercommentsreachtxt,
+      });
       await newOnboard.save();
 
       res.status(200).json("Onboard form created successfully");
